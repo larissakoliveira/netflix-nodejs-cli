@@ -1,93 +1,35 @@
-let userId: string | number | boolean;
+import axios from "axios";
 
-userId = 0;
-userId = "0"
-
-enum IndicativeRating {
-    AL = 0,
-    A10 = 10,
-    A12 = 12,
-    A14 = 14,
-    A16 = 16,
-    A18 = 18,
-}
-
-interface Movie {
-    name: string;
-
-    ratings: number[];
-
-    indicativeRating: IndicativeRating;
-}
+import filterMoviesByIndicativeRating from "./utils/filterMoviesByIndicativeRating";
+import orderByAverageRate from "./utils/orderByAverageRate";
+import IndicativeRating from "./enums/indicativeRating";
+import loadMovies from './utils/loadMovies';
+import addMovies from "./utils/addMovies";
+import Movie from "./interfaces/Movie";
+import User from "./interfaces/User";
 
 const movies: Movie[] = [
     {
+        id: 1,
         name: 'Spider Man',
         ratings: [1, 5, 3],
         indicativeRating: IndicativeRating.AL
     },
     {
+        id: 2,
         name: 'Doctor Strange',
         ratings: [5, 5, 3],
         indicativeRating: IndicativeRating.A18
     },
     {
+        id: 3,
         name: 'Avengers',
         ratings: [],
         indicativeRating: IndicativeRating.A12
     }
 ];
+;
 
-interface Average {
-    average: number;
-}
-
-type MovieWithAverage = Movie & Average;
-
-function removeMovieWithoutRatings(movies: Movie[]) {
-    return movies.filter(movie => movie.ratings.length !== 0)
-}
-
-function calculateMoviesAverage(movies: Movie[]): MovieWithAverage[] {
-    const sanitizedMovies = removeMovieWithoutRatings(movies);
-
-    return sanitizedMovies.map(movie => {
-        const initialValue = 0;
-        const length = movie.ratings.length;
-        const sumFn = (previous: number, current: number) => previous + current
-
-        const average = movie.ratings.reduce(sumFn, initialValue) / length;
-    
-        return {
-            ...movie,
-            average,
-        }
-    });
-}
-
-function orderByAverageRate(movies: Movie[]) {
-    const moviesWithAverage = calculateMoviesAverage(movies);
-    
-    const moviesOrdered = moviesWithAverage.sort((a, b) => {
-        if(a.average > b.average) {
-            return 1
-        }
-
-        if(a.average < b.average) {
-            return -1
-        }
-
-        return 0;
-    })
-
-    return moviesOrdered;
-}
-
-interface User {
-    name: string;
-    age: number;
-    myList: Movie[]
-}
 
 const user: User = {
     name: "Bruno Benicio",
@@ -95,64 +37,22 @@ const user: User = {
     myList: []
 }
 
-class User {
-    name;
-    age;
-    myList;
-
-    constructor(name: string, age: number, myList: Movie[]) {
-        this.name = name;
-        this.age = age;
-        this.myList = myList;
-    }
-}
-
-function filterMoviesByIndicativeRating(movies: Movie[], user: User): Movie[] {
-    return movies.filter((movie) => {
-        return movie.indicativeRating <= user.age
-    })
-}
 
 const orderedMovies = orderByAverageRate(movies);
-
 const filteredMoviesByIndicativeRating = filterMoviesByIndicativeRating(orderedMovies, user)
+const newUserWithNewList = addMovies(user, movies, 1, 1, 1)
 
-console.log(filteredMoviesByIndicativeRating)
 
-console.log(user);
+console.log(newUserWithNewList);
+console.log(filteredMoviesByIndicativeRating);
 
-function addMovieToUserList(movie: Movie, user: User): void {
-    user.myList = [
-        ...user.myList,
-        movie,
-    ]
-}
 
-addMovieToUserList(
-    {
-        name: "Toy Story",
-        ratings: [5, 5, 5],
-        indicativeRating: IndicativeRating.AL
-    },
-    user
-)
+const request = axios({
+    method: "get",
+    url: "https://mcuapi.herokuapp.com/api/v1/movies?page=1&limit=100"
+})
 
-addMovieToUserList(
-    {
-        name: "Toy Story 2",
-        ratings: [5, 5, 5],
-        indicativeRating: IndicativeRating.AL
-    },
-    user
-)
-
-console.log(user);
-
-/*
-
-Problema 1
-
-Adicionar ao usuário um array de "minha lista" onde é possível armazenar os filmes
-Criar um metodo para adicionar um filme a lista do usuário
-
-*/
+request.then((resultado) => {
+    const { data } = resultado.data
+    console.log(loadMovies(data))
+})

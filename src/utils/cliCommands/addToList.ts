@@ -16,7 +16,7 @@ async function addToList(movies: Movie[], loggedUserId: number){
         console.log(users[loggedUserId])
         runMenu();
     } catch (error) {
-        console.log(chalk.red("\n User MUST be logged in to add movies! \n \n"))
+        console.log(chalk.redBright("\n User MUST be logged in to add movies! \n \n"))
         runMenu()
     }
 

@@ -28,7 +28,7 @@ async function rateMovie(movies: Movie[]){
       
                 
             } catch (error) {
-                console.log(chalk.red("\n User MUST be logged to rate movies! \n \n"))
+                console.log(chalk.redBright("\n User MUST be logged to rate movies! \n \n"))
                 runMenu()
             }
 

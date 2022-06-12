@@ -36,7 +36,7 @@ async function runMenu() {
             loggedUserId = users.findIndex(user => user.id === userAnswer.option)
             if(loggedUserId === -1){
                 console.clear();
-                console.log(chalk.red(
+                console.log(chalk.redBright(
                     "USER NOT FOUND! \n")
                     )
                 runMenu()  
@@ -44,7 +44,7 @@ async function runMenu() {
             }
             console.clear()
                 const userData = users.filter(user => user.id === userAnswer.option)
-                console.log(chalk.yellow(`Welcome to ${chalk.red("NETFLIX")}, ${userData[0].name}! \n`)) 
+                console.log(chalk.yellow(`Welcome to ${chalk.redBright("NETFLIX")}, ${userData[0].name}! \n`)) 
     
             runMenu()
             break;

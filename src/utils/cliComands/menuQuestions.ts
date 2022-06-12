@@ -3,7 +3,7 @@ export const menuQuestions = [
     {
         type: "input",
         name: "option",
-        message: "Choose an option: \n 1 - Rate movie \n 2 - Show movies rate average \n 3 - Add movie to your list \n 4 - Change user \n 0 - Exit \n"
+        message: "ATTENTION! If you have not downloaded yet the movies, please do it first, if you have, ignore option 1! \n Choose an option: \n 1 - Download movies \n 2 - Rate movie \n 3 - Show movies rate average \n 4 - Add movie to your list \n 5 - Change user \n 0 - Exit \n"
     }
 ]
 
@@ -26,5 +26,11 @@ export const rateQuestions = [
 export const whichUserQuestions = [{
     type: "number",
     name: "option",
-    message: "Who is using? Please, enter your id"
+    message: "\n Who is using? Please, enter your id"
+}]
+
+export const addToUserListQuestions = [{
+    type: "input",
+    name: "option",
+    message: "Enter the movies id you want to add to your list: (ex: 1, 2, 3)"
 }]

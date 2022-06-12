@@ -3,7 +3,7 @@ import removeMovieWithoutRatings from "./removeMovieWithoutRatings";
 
 
 interface MoviesWithAverage extends Movie {
-    average: number;
+    average: number | string;
 }
 
 function calculateMoviesAverage(movies: Movie[]): MoviesWithAverage[] {
@@ -14,7 +14,7 @@ function calculateMoviesAverage(movies: Movie[]): MoviesWithAverage[] {
         const length = movie.ratings.length;
         const sumFn = (previous: number, current: number) => previous + current
 
-        const average = movie.ratings.reduce(sumFn, initialValue) / length;
+        const average = (movie.ratings.reduce(sumFn, initialValue) / length).toFixed(2);
     
         return {
             ...movie,

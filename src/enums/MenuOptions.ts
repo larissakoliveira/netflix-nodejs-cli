@@ -1,8 +1,9 @@
 enum MenuOptions {
-    RATE_MOVIE = '1',
-    SHOW_WITH_AVERAGE = '2',
-    ADD_TO_LIST = '3',
-    CHANGE_USER = '4',
+    DOWNLOAD = '1',
+    RATE_MOVIE = '2',
+    SHOW_WITH_AVERAGE = '3',
+    ADD_TO_LIST = '4',
+    CHANGE_USER = '5',
     EXIT = '0'
 }
 

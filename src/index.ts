@@ -5,7 +5,7 @@ import calculateMoviesAverage from './utils/movies/calculateMoviesAverage';
 import addMovies from './utils/movies/addMovies';
 import MenuOptions from "./enums/MenuOptions";
 import users from "./db/users";
-import { chooseMovieQuestions, menuQuestions, rateQuestions, whichUserQuestions } from "./utils/cliComands/menuQuestions";
+import { addToUserListQuestions, chooseMovieQuestions, menuQuestions, rateQuestions, whichUserQuestions } from "./utils/cliComands/menuQuestions";
 
 
 let movies: Movie[];
@@ -13,6 +13,10 @@ let loggedUserId: number;
 
 async function runMenu() {
     const movieService = new MovieService();
+    const answers = await inquirer.prompt(menuQuestions);
+        console.clear();
+    switch(answers.option) {
+        case  MenuOptions.DOWNLOAD:
         try {
             
             console.log("Loading movies...")
@@ -24,14 +28,14 @@ async function runMenu() {
             console.log("Problem found when downloading the movies")
         } 
 
-        users.map(user => console.log(`${user.id} - ${user.name}`))
+        users.map(user => console.log(`\n ${user.id} - ${user.name}`))
         const userAnswer = await inquirer.prompt(whichUserQuestions);
         try {
             
             loggedUserId = users.findIndex(user => user.id === userAnswer.option)
             console.clear()
             const userData = users.filter(user => user.id === userAnswer.option)
-            console.log(`Welcome to Netflix, ${userData[0].name}!`)
+            console.log(`Welcome to NETFLIX, ${userData[0].name}!`)
         } catch (error) {
             // console.log(
             //     "USER NOT FOUND!"
@@ -39,11 +43,9 @@ async function runMenu() {
             // runMenu()   
         }
  
-        const answers = await inquirer.prompt(menuQuestions);
-            console.clear();
 
-
-    switch(answers.option) {
+        runMenu()
+        break;
        
         case MenuOptions.RATE_MOVIE: 
             let movieId: number;
@@ -60,11 +62,9 @@ async function runMenu() {
                     movie.ratings.push(rate)
                 }
             })
-
-            console.log(movies)
+            console.clear()
             runMenu()
 
-            
         break;
 
         case MenuOptions.SHOW_WITH_AVERAGE:
@@ -73,18 +73,13 @@ async function runMenu() {
             runMenu();
         break;
         case MenuOptions.ADD_TO_LIST:
-            const addToUserListQuestions = [{
-                type: "input",
-                name: "option",
-                message: "Enter the movies id you want to add to your list: (ex: 1, 2, 3)"
-            }]
-
+            
             const listIdsAnswer = await inquirer.prompt(addToUserListQuestions);
             const listIds = listIdsAnswer.option.split(",").map((id: string) => parseInt(id))
 
             users[loggedUserId] = addMovies(users[loggedUserId], movies, ...listIds)
             console.log(users[loggedUserId])
-
+            runMenu();
             break;
         case MenuOptions.CHANGE_USER:
             console.log("Logging out...")

@@ -6,6 +6,7 @@ import addMovies from './utils/movies/addMovies';
 import MenuOptions from "./enums/MenuOptions";
 import users from "./db/users";
 import { addToUserListQuestions, chooseMovieQuestions, menuQuestions, rateQuestions, whichUserQuestions } from "./utils/cliComands/menuQuestions";
+import chalk from 'chalk';
 
 
 let movies: Movie[];
@@ -51,29 +52,47 @@ async function runMenu() {
             let movieId: number;
             let rate: number;
 
-            const chooseMovieAnswers = await inquirer.prompt(chooseMovieQuestions);
-            movieId = chooseMovieAnswers.option;
+            try {
+                const chooseMovieAnswers = await inquirer.prompt(chooseMovieQuestions);
+                movieId = chooseMovieAnswers.option;
+                const movieName = movies[movieId-1].name
+                console.log(movieName)
+    
+                const rateAnswers = await inquirer.prompt(rateQuestions);
+                rate = rateAnswers.option;
+    
+                movies.forEach(movie => {
+                    if(movie.id === movieId){
+                        movie.ratings.push(rate)
+                    }
+                })
+                console.clear()
+                runMenu()
+    
+            break;
+                
+            } catch (error) {
+                console.log(chalk.red("\n User MUST be logged in to add movies! \n \n"))
+                runMenu()
+            }
 
-            const rateAnswers = await inquirer.prompt(rateQuestions);
-            rate = rateAnswers.option;
-
-            movies.forEach(movie => {
-                if(movie.id === movieId){
-                    movie.ratings.push(rate)
-                }
-            })
-            console.clear()
-            runMenu()
-
-        break;
+            break;
 
         case MenuOptions.SHOW_WITH_AVERAGE:
+            try{
             const moviesWithAverage = calculateMoviesAverage(movies);
-            moviesWithAverage.map(movie => console.log(`${movie.name}, Average: ${movie.average}`))
+            moviesWithAverage.map(movie => console.log(` Movies average: \n ${movie.name}, Average: ${movie.average} \n \n`))
             runMenu();
         break;
+            }
+        catch (error) {
+            console.log(chalk.red("\n User MUST be logged in to add movies! \n \n"))
+            runMenu()
+        }
+        break;
         case MenuOptions.ADD_TO_LIST:
-            
+
+        try {
             const listIdsAnswer = await inquirer.prompt(addToUserListQuestions);
             const listIds = listIdsAnswer.option.split(",").map((id: string) => parseInt(id))
 
@@ -81,8 +100,14 @@ async function runMenu() {
             console.log(users[loggedUserId])
             runMenu();
             break;
+        } catch (error) {
+            console.log(chalk.red("\n User MUST be logged in to add movies! \n \n"))
+            runMenu()
+        }
+        break;
+
         case MenuOptions.CHANGE_USER:
-            console.log("Logging out...")
+            console.log(chalk.green("User logged out... to login again, press 1 \n \n"))
             runMenu()
             break;
         case MenuOptions.EXIT:

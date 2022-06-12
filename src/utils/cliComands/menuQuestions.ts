@@ -3,7 +3,7 @@ export const menuQuestions = [
     {
         type: "input",
         name: "option",
-        message: "ATTENTION! If you have not downloaded yet the movies, please do it first, if you have, ignore option 1! \n Choose an option: \n 1 - Download movies \n 2 - Rate movie \n 3 - Show movies rate average \n 4 - Add movie to your list \n 5 - Change user \n 0 - Exit \n"
+        message: "ATTENTION! If you have logged out of your account or not downloaded yet the movies, PLEASE do it first! Otherwise, just ignore option 1! \n Choose an option: \n 1 - Download movies and Login \n 2 - Rate movie \n 3 - Show movies rate average \n 4 - Add movie to your list \n 5 - Change user \n 0 - Exit \n"
     }
 ]
 

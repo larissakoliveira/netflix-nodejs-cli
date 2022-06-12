@@ -31,19 +31,21 @@ async function runMenu() {
 
         users.map(user => console.log(`\n ${user.id} - ${user.name}`))
         const userAnswer = await inquirer.prompt(whichUserQuestions);
-        try {
+       
+        
+        loggedUserId = users.findIndex(user => user.id === userAnswer.option)
+        if(loggedUserId === -1){
+            console.clear();
             
-            loggedUserId = users.findIndex(user => user.id === userAnswer.option)
-            console.clear()
-            const userData = users.filter(user => user.id === userAnswer.option)
-            console.log(`Welcome to NETFLIX, ${userData[0].name}!`)
-        } catch (error) {
-            // console.log(
-            //     "USER NOT FOUND!"
-            // )
-            // runMenu()   
+            console.log(chalk.red(
+                "USER NOT FOUND! \n")
+                )
+            runMenu()  
+            break;
         }
- 
+        console.clear()
+            const userData = users.filter(user => user.id === userAnswer.option)
+            console.log(chalk.yellow(`Welcome to ${chalk.red("NETFLIX")}, ${userData[0].name}! \n`)) 
 
         runMenu()
         break;

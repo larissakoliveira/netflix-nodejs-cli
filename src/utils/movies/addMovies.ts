@@ -1,5 +1,5 @@
-import Movie from "../interfaces/Movie";
-import User from "../interfaces/User";
+import Movie from "../../interfaces/Movie";
+import User from "../../interfaces/User";
 
 function addMovies(user: User, movies: Movie[], ...ids: number[]): User {
     const newList: Movie[] = [];

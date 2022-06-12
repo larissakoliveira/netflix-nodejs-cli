@@ -1,9 +1,10 @@
 import Movie from "./Movie";
 
 interface User {
+    id: number;
     name: string;
     age: number;
-    myList: Movie[]
+    myList: Movie[];
 }
 
 export default User;

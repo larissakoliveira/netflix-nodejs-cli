@@ -1,158 +1,120 @@
-let userId: string | number | boolean;
+import inquirer from "inquirer";
+import Movie from "./interfaces/Movie";
+import MovieService from "./services/MovieService";
+import calculateMoviesAverage from './utils/movies/calculateMoviesAverage';
+import addMovies from './utils/movies/addMovies';
+import MenuOptions from "./enums/MenuOptions";
+import users from "./db/users";
+import { addToUserListQuestions, chooseMovieQuestions, menuQuestions, rateQuestions, whichUserQuestions } from "./utils/cliComands/menuQuestions";
+import chalk from 'chalk';
 
-userId = 0;
-userId = "0"
 
-enum IndicativeRating {
-    AL = 0,
-    A10 = 10,
-    A12 = 12,
-    A14 = 14,
-    A16 = 16,
-    A18 = 18,
-}
+let movies: Movie[];
+let loggedUserId: number;
 
-interface Movie {
-    name: string;
+async function runMenu() {
+    const movieService = new MovieService();
+    const answers = await inquirer.prompt(menuQuestions);
+        console.clear();
+    switch(answers.option) {
+        case MenuOptions.DOWNLOAD:
+        try {
+            console.log("Loading movies...")
+            movies = await movieService.listAll();
+            console.log("Download done!!!")    
+            movies.map(movie => console.log(`${movie.id} - ${movie.name}`)
+                )
+        } catch (error) {
+            console.log("Problem found when downloading the movies")
+        } 
 
-    ratings: number[];
+        users.map(user => console.log(`\n ${user.id} - ${user.name}`))
+        const userAnswer = await inquirer.prompt(whichUserQuestions);
+       
+        loggedUserId = users.findIndex(user => user.id === userAnswer.option)
+        if(loggedUserId === -1){
+            console.clear();
+            console.log(chalk.red(
+                "USER NOT FOUND! \n")
+                )
+            runMenu()  
+            break;
+        }
+        console.clear()
+            const userData = users.filter(user => user.id === userAnswer.option)
+            console.log(chalk.yellow(`Welcome to ${chalk.red("NETFLIX")}, ${userData[0].name}! \n`)) 
 
-    indicativeRating: IndicativeRating;
-}
+        runMenu()
+        break;
+       
+        case MenuOptions.RATE_MOVIE: 
+            let movieId: number;
+            let rate: number;
 
-const movies: Movie[] = [
-    {
-        name: 'Spider Man',
-        ratings: [1, 5, 3],
-        indicativeRating: IndicativeRating.AL
-    },
-    {
-        name: 'Doctor Strange',
-        ratings: [5, 5, 3],
-        indicativeRating: IndicativeRating.A18
-    },
-    {
-        name: 'Avengers',
-        ratings: [],
-        indicativeRating: IndicativeRating.A12
-    }
-];
-
-interface Average {
-    average: number;
-}
-
-type MovieWithAverage = Movie & Average;
-
-function removeMovieWithoutRatings(movies: Movie[]) {
-    return movies.filter(movie => movie.ratings.length !== 0)
-}
-
-function calculateMoviesAverage(movies: Movie[]): MovieWithAverage[] {
-    const sanitizedMovies = removeMovieWithoutRatings(movies);
-
-    return sanitizedMovies.map(movie => {
-        const initialValue = 0;
-        const length = movie.ratings.length;
-        const sumFn = (previous: number, current: number) => previous + current
-
-        const average = movie.ratings.reduce(sumFn, initialValue) / length;
+            try {
+                const chooseMovieAnswers = await inquirer.prompt(chooseMovieQuestions);
+                movieId = chooseMovieAnswers.option;
+                const movieName = movies[movieId-1].name
+                console.log(movieName)
     
-        return {
-            ...movie,
-            average,
-        }
-    });
-}
-
-function orderByAverageRate(movies: Movie[]) {
-    const moviesWithAverage = calculateMoviesAverage(movies);
+                const rateAnswers = await inquirer.prompt(rateQuestions);
+                rate = rateAnswers.framework;
     
-    const moviesOrdered = moviesWithAverage.sort((a, b) => {
-        if(a.average > b.average) {
-            return 1
+                movies.forEach(movie => {
+                    if(movie.id === movieId){
+                        movie.ratings.push(rate)
+                    }
+                })
+                console.clear()
+                runMenu()
+    
+            break;
+                
+            } catch (error) {
+                console.log(chalk.red("\n User MUST be logged in to add movies! \n \n"))
+                runMenu()
+            }
+
+            break;
+
+        case MenuOptions.SHOW_WITH_AVERAGE:
+            try{
+            const moviesWithAverage = calculateMoviesAverage(movies);
+            console.clear()
+            
+            moviesWithAverage.map(movie => console.log((`${chalk.blue(movie.name)}, Average: ${chalk.green(movie.average)}`)))
+            runMenu();
+        break;
+            }
+        catch (error) {
+            console.log(chalk.red("\n User MUST be logged in to add movies! \n \n"))
+            runMenu()
         }
+        break;
+        case MenuOptions.ADD_TO_LIST:
 
-        if(a.average < b.average) {
-            return -1
+        try {
+            const listIdsAnswer = await inquirer.prompt(addToUserListQuestions);
+            const listIds = listIdsAnswer.option.split(",").map((id: string) => parseInt(id))
+
+            users[loggedUserId] = addMovies(users[loggedUserId], movies, ...listIds)
+            console.log(users[loggedUserId])
+            runMenu();
+            break;
+        } catch (error) {
+            console.log(chalk.red("\n User MUST be logged in to add movies! \n \n"))
+            runMenu()
         }
+        break;
 
-        return 0;
-    })
-
-    return moviesOrdered;
-}
-
-interface User {
-    name: string;
-    age: number;
-    myList: Movie[]
-}
-
-const user: User = {
-    name: "Bruno Benicio",
-    age: 17,
-    myList: []
-}
-
-class User {
-    name;
-    age;
-    myList;
-
-    constructor(name: string, age: number, myList: Movie[]) {
-        this.name = name;
-        this.age = age;
-        this.myList = myList;
+        case MenuOptions.CHANGE_USER:
+            runMenu()
+            console.log(chalk.green("User logged out... to login again, press 1 \n \n"))
+            break;
+        case MenuOptions.EXIT:
+            return;
     }
 }
 
-function filterMoviesByIndicativeRating(movies: Movie[], user: User): Movie[] {
-    return movies.filter((movie) => {
-        return movie.indicativeRating <= user.age
-    })
-}
+runMenu()
 
-const orderedMovies = orderByAverageRate(movies);
-
-const filteredMoviesByIndicativeRating = filterMoviesByIndicativeRating(orderedMovies, user)
-
-console.log(filteredMoviesByIndicativeRating)
-
-console.log(user);
-
-function addMovieToUserList(movie: Movie, user: User): void {
-    user.myList = [
-        ...user.myList,
-        movie,
-    ]
-}
-
-addMovieToUserList(
-    {
-        name: "Toy Story",
-        ratings: [5, 5, 5],
-        indicativeRating: IndicativeRating.AL
-    },
-    user
-)
-
-addMovieToUserList(
-    {
-        name: "Toy Story 2",
-        ratings: [5, 5, 5],
-        indicativeRating: IndicativeRating.AL
-    },
-    user
-)
-
-console.log(user);
-
-/*
-
-Problema 1
-
-Adicionar ao usuário um array de "minha lista" onde é possível armazenar os filmes
-Criar um metodo para adicionar um filme a lista do usuário
-
-*/

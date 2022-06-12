@@ -1,5 +1,5 @@
 enum MenuOptions {
-    DOWNLOAD = '1',
+    DOWNLOAD_AND_LOGIN = '1',
     RATE_MOVIE = '2',
     SHOW_WITH_AVERAGE = '3',
     ADD_TO_LIST = '4',

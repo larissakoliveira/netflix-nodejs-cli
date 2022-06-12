@@ -17,9 +17,8 @@ async function runMenu() {
     const answers = await inquirer.prompt(menuQuestions);
         console.clear();
     switch(answers.option) {
-        case  MenuOptions.DOWNLOAD:
+        case MenuOptions.DOWNLOAD:
         try {
-            
             console.log("Loading movies...")
             movies = await movieService.listAll();
             console.log("Download done!!!")    
@@ -32,11 +31,9 @@ async function runMenu() {
         users.map(user => console.log(`\n ${user.id} - ${user.name}`))
         const userAnswer = await inquirer.prompt(whichUserQuestions);
        
-        
         loggedUserId = users.findIndex(user => user.id === userAnswer.option)
         if(loggedUserId === -1){
             console.clear();
-            
             console.log(chalk.red(
                 "USER NOT FOUND! \n")
                 )
@@ -61,7 +58,7 @@ async function runMenu() {
                 console.log(movieName)
     
                 const rateAnswers = await inquirer.prompt(rateQuestions);
-                rate = rateAnswers.option;
+                rate = rateAnswers.framework;
     
                 movies.forEach(movie => {
                     if(movie.id === movieId){
@@ -83,7 +80,9 @@ async function runMenu() {
         case MenuOptions.SHOW_WITH_AVERAGE:
             try{
             const moviesWithAverage = calculateMoviesAverage(movies);
-            moviesWithAverage.map(movie => console.log(` Movies average: \n ${movie.name}, Average: ${movie.average} \n \n`))
+            console.clear()
+            
+            moviesWithAverage.map(movie => console.log((`${chalk.blue(movie.name)}, Average: ${chalk.green(movie.average)}`)))
             runMenu();
         break;
             }
@@ -109,8 +108,8 @@ async function runMenu() {
         break;
 
         case MenuOptions.CHANGE_USER:
-            console.log(chalk.green("User logged out... to login again, press 1 \n \n"))
             runMenu()
+            console.log(chalk.green("User logged out... to login again, press 1 \n \n"))
             break;
         case MenuOptions.EXIT:
             return;

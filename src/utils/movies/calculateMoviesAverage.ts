@@ -14,7 +14,7 @@ function calculateMoviesAverage(movies: Movie[]): MoviesWithAverage[] {
         const length = movie.ratings.length;
         const sumFn = (previous: number, current: number) => previous + current
 
-        const average = (movie.ratings.reduce(sumFn, initialValue) / length).toFixed(1);
+        const average = (movie.ratings.reduce(sumFn, initialValue) / length);
     
         return {
             ...movie,

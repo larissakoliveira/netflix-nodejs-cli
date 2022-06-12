@@ -3,7 +3,7 @@ export const menuQuestions = [
     {
         type: "input",
         name: "option",
-        message: "ATTENTION! If you have logged out of your account or not downloaded yet the movies, PLEASE do it first! Otherwise, just ignore option 1! \n Choose an option: \n 1 - Download movies and Login \n 2 - Rate movie \n 3 - Show movies rate average \n 4 - Add movie to your list \n 5 - Change user \n 0 - Exit \n"
+        message: "\n ATTENTION! If you have logged out of your account or not downloaded yet the movies, PLEASE do it first! Otherwise, just ignore option 1! \n \n Choose an option: \n 1 - Download movies and Login \n 2 - Rate movie \n 3 - Show movies rate average \n 4 - Add movie to your list \n 5 - Change user \n 0 - Exit \n"
     }
 ]
 
@@ -17,9 +17,10 @@ export const chooseMovieQuestions = [
 
 export const rateQuestions = [
     {
-        type: "number",
-        name: "option",
-        message: "Between 0 to 5, what rate do you want to give to this movie?"
+        type: "list",
+        name: "framework",
+        choices: [1, 2, 3, 4, 5],
+        message: "What rage do you want to give to this movie?"
     }
 ]
 

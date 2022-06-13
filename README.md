@@ -4,17 +4,17 @@
 
 <h1 align="center"> Netflix clone by Etho / McFadyen - Bootcamp </h1>
 
-Part 1 [Front-end](https://github.com/larissakoliveira/netflix-react-desktop)
+##### Part 1 [Front-end](https://github.com/larissakoliveira/netflix-react-desktop)
 
-Now it's time to build the part 2, the backend server!
+##### Now it's time to build the part 2, the backend server!
 
-To install all require dependencies use ```npm i```
+To install all require dependencies use <br>
+```npm i```
 <br>
-To start the app ```npm start```<br>
+To start the app <br>
+```npm start```<br>
 
 Project create with [Node.js](https://nodejs.org/en/docs/)
-
-At the first back-end week of the course, we have learned and improved a lot already.
 
 ### Highlights
 =================
@@ -29,22 +29,22 @@ At the first back-end week of the course, we have learned and improved a lot alr
    * [Author](#Author)
 
 ## Description
-	A summary of what we did each day.<br>
+At the first back-end week of the course, we have learned and improved a lot already. This is a summary of what we did each day.<br>
 
 ### FirstDay
-	Started by learn more about the Typescript syntax with a lot of examples, how to use it, and how to manipulate array data using Javascript methods.<br>
+Started by learn more about the Typescript syntax with a lot of examples, how to use it, and how to manipulate array data using Javascript methods.<br>
 	
 ### SecondDay
-	Started working with objects, functions, strings. Also, we started building and setting the Nodejs project.<br>
+Started working with objects, functions, strings. Also, we started building and setting the Nodejs project.<br>
 
 ### ThirdDay
-	Learned more about classes, how to write asynchronous code(async/await), also started to use the database [Marvel Cinematic Universe API](https://mcuapi.herokuapp.com/docs/#/Movies/get_api_v1_movies) to help with our project.<br>
+Learned more about classes, how to write asynchronous code(async/await), also started to use the database [Marvel Cinematic Universe API](https://mcuapi.herokuapp.com/docs/#/Movies/get_api_v1_movies) to help with our project.<br>
 
 ### FourthDay
-	The main subject of this day was Generics, a Typescript tool, kind of abstract and hard at the beginning, but after many great examples it became clea. To finish the day we started learning about how to use Inquirer, a Node.js library for creating interactive CLI prompts.  <br>
+The main subject of this day was Generics, a Typescript tool, kind of abstract and hard at the beginning, but after many great examples it became clea. To finish the day we started learning about how to use Inquirer, a Node.js library for creating interactive CLI prompts.  <br>
 
 ### FifthDay
-	We did a CLI using Inquirer library.
+We did a CLI using Inquirer library.
 #### About the CLI:
 When the CLI starts it asks the user to use the first option, download movies and login, before use any other option. The user id must be a valid one! After logged, the user is able to rate a movie, see the movies rate average, add a movie to his list, change user or exit it. <br>
 
@@ -69,16 +69,16 @@ At the end of the class we had a short introduction about decorators in Typescri
    * [Chalk](https://github.com/chalk/chalk)
 
 
-### Status
+ ### Status
  
  <h4 align="center"> 
 	🚧  Project 🚀 under construction! coming soon...  🚧
 </h4>
 
 ### Author
-<p align="center">------------------------------------------------------</p>
-<p align="center">Made with ❤️ by Larissa Oliveira 👋🏽 Get in touch!</p>
+---
+Made with ❤️ by Larissa Oliveira 👋🏽 Get in touch!
 
-<a  align="center" target="_blank" href="https://www.linkedin.com/in/larissakoliveira/"> Linkedin 
+<a target="_blank" href="https://www.linkedin.com/in/larissakoliveira/"> Linkedin 
 	
 </a>

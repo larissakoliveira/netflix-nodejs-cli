@@ -4,14 +4,14 @@
 
 <h1 align="center"> Netflix clone by Etho / McFadyen - Bootcamp </h1>
 
-##### Part 1 [Front-end](https://github.com/larissakoliveira/netflix-react-desktop)
+##### Part 1 - [Front-end](https://github.com/larissakoliveira/netflix-react-desktop)
 
-##### Now it's time to build the part 2, the backend server!
+##### Now it's time to build the part 2, the back-end server!
 
-To install all require dependencies use <br>
+#### To install all require dependencies use <br>
 ```npm i```
 <br>
-To start the app <br>
+#### To start the app <br>
 ```npm start```<br>
 
 Project create with [Node.js](https://nodejs.org/en/docs/)
@@ -48,15 +48,15 @@ We did a CLI using Inquirer library.
 #### About the CLI:
 When the CLI starts it asks the user to use the first option, download movies and login, before use any other option. The user id must be a valid one! After logged, the user is able to rate a movie, see the movies rate average, add a movie to his list, change user or exit it. <br>
 
-Option - Rate Movie - the user has to choose the movie he wants to rate by its id. After that, he will be asked to give the rate between 1 to 5.
-<br>
-Option - Show movies rate average - this one will show all movies that he had rated, with the movie name and its average.
-<br>
-Option - Add movie to your list - when press this option, it will first request the movie id that the user wants to add to his list, it can be how many movies he wishes, as long as it follows the example(1, 2, 3) by passing each id separated by a comma.
-<br>
-Option - Change user - it will show this message after pressed this option.. "User logged out... to login again, press 1". So just press 1 in order to download the movies and login again, then you can login again by selecting from any other user option again.
+<b>Option - Rate Movie -</b> the user has to choose the movie he wants to rate by its id. After that, he will be asked to give the rate between 1 to 5.
+<br><br>
+<b>Option - Show movies rate average -</b> this one will show all movies that he had rated, with the movie name and its average.
+<br><br>
+<b>Option - Add movie to your list -</b> when press this option, it will first request the movie id that the user wants to add to his list, it can be how many movies he wishes, as long as it follows the example(1, 2, 3) by passing each id separated by a comma.
+<br><br>
+<b>Option - Change user -</b> it will show this message after pressed this option.. "User logged out... to login again, press 1". So just press 1 in order to download the movies and login again, then you can login again by selecting from any other user option again.
 Option - Exit - it exits the app.
-<br>
+<br><br>
 At the end of the class we had a short introduction about decorators in Typescript, next week we will delve deeper into this subject. <br>
 
 ### Techs

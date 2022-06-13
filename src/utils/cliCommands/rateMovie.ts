@@ -12,7 +12,7 @@ async function rateMovie(movies: Movie[]){
                 const chooseMovieAnswers = await inquirer.prompt(chooseMovieQuestions);
                 movieId = chooseMovieAnswers.option;
                 const movieName = movies[movieId-1].name
-                console.log(movieName)
+                console.log(chalk.bgCyan.blackBright.bold(`${movieName} \n`))
     
                 const rateAnswers = await inquirer.prompt(rateQuestions);
                 rate = rateAnswers.framework;

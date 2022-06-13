@@ -12,7 +12,7 @@ function showAverage(movies: Movie[]){
     
         }
     catch (error) {
-        console.log(chalk.redBright("\n User MUST be logged in to see the movies rate average! \n \n"))
+        console.log(chalk.redBright("\n User MUST be logged to see the movies rate average! \n \n"))
         runMenu()
     }
 }

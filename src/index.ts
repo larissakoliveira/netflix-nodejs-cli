@@ -7,7 +7,7 @@ import { menuQuestions, whichUserQuestions } from "./utils/cliCommands/menuQuest
 import chalk from 'chalk';
 import showAverage from "./utils/cliCommands/showAverage";
 import rateMovie from "./utils/cliCommands/rateMovie";
-import addToList from "./utils/cliCommands/addToList";
+import addMoviesToList from "./utils/cliCommands/addMoviesToList";
 
 
 let movies: Movie[];
@@ -37,14 +37,14 @@ async function runMenu() {
             if(loggedUserId === -1){
                 console.clear();
                 console.log(chalk.redBright(
-                    "USER NOT FOUND! \n")
+                    "USER NOT FOUND, ENTER A VALID ID AND TRY TO LOGIN AGAIN!")
                     )
                 runMenu()  
                 break;
             }
             console.clear()
                 const userData = users.filter(user => user.id === userAnswer.option)
-                console.log(chalk.yellow(`Welcome to ${chalk.redBright("NETFLIX")}, ${userData[0].name}! \n`)) 
+                console.log(chalk.yellow(`Welcome to ${chalk.redBright.bgBlack("NETFLIX")}, ${userData[0].name}! \n`)) 
     
             runMenu()
             break;
@@ -58,11 +58,11 @@ async function runMenu() {
         break;
         case MenuOptions.ADD_TO_LIST:
 
-            addToList(movies, loggedUserId)
+            addMoviesToList(movies, loggedUserId)
             break;
         case MenuOptions.CHANGE_USER:
             runMenu()
-            console.log(chalk.green("User logged out... to login again, press 1 \n \n"))
+            console.log(chalk.green("User logged out... to login again, press 1 then press Enter\n \n"))
             break;
         case MenuOptions.EXIT:
             return;

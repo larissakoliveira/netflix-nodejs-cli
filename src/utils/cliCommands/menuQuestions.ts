@@ -20,7 +20,7 @@ export const rateQuestions = [
         type: "list",
         name: "framework",
         choices: [1, 2, 3, 4, 5],
-        message: "What rage do you want to give to this movie?"
+        message: "What rate do you want to give to this movie?"
     }
 ]
 

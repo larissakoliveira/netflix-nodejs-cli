@@ -48,6 +48,7 @@ We did a CLI using Inquirer library.
 #### About the CLI:
 When the CLI starts it asks the user to use the first option, download movies and login, before use any other option. The user id MUST be a valid one! The user MUST be login to be able to rate a movie, see the movies rate average, add a movie to his list, change user or exit it, otherwise an error will be thrown. <br><br>
 <div align="center">
+<img align="center" src="https://user-images.githubusercontent.com/82476805/173265162-d85fe1ac-e050-494a-9975-04225d41d7a1.png"/><br><br>
 <img align="center" src="https://user-images.githubusercontent.com/82476805/173263211-5c9cd57f-07f9-4c07-9b63-fe18b1fdb0f2.png"/><br><br>
 <img align="center" src="https://user-images.githubusercontent.com/82476805/173263267-58941b6e-72f5-4471-8ed3-db34c1c53a95.png"/>
 </div>
@@ -68,8 +69,8 @@ When the CLI starts it asks the user to use the first option, download movies an
 <b>Option - Add movie to your list -</b> when press this option, it will first request the movie id that the user wants to add to his list, it can be how many movies he wishes, as long as it follows the example(1, 2, 3) by passing each id separated by a comma.
 <div align="center">
 <img align="center" src="https://user-images.githubusercontent.com/82476805/173264192-5e6bc2f1-0018-4a54-87d6-e5085a77b3ab.png"/><br><br>
-<img align="center" src="https://user-images.githubusercontent.com/82476805/173264011-26ada8ea-d0dc-4d19-9b73-e9491777864e.png"/><br><br>
-<img align="center" src="https://user-images.githubusercontent.com/82476805/173264129-48e9f4ea-7aa5-42e1-a1be-de2a9e497ce7.png"/>
+<img align="center" src="https://user-images.githubusercontent.com/82476805/173265358-790f5c3b-413b-44c0-ad21-9ba69c0730fc.png"/><br><br>
+
 </div>
 <br><br>
 <b>Option - Change user -</b> it will show this message after pressed this option.. "User logged out... to login again, press 1". So just press 1 in order to download the movies and login again, then you can login again by selecting from any other user option again.

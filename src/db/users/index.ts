@@ -1,22 +1,23 @@
+import chalk from "chalk";
 import User from "../../interfaces/User";
 
 const users: User[] = [
     {
     id: 1,
-    name: "João Bernardes",
+    name: chalk.bgWhite.blackBright.bold(" Steve Jobs "),
     age: 15,
     myList: []
 },
 {
     id: 2,
-    name: "Diego Fernandes",
-    age: 25,
+    name: chalk.bgWhite.bold.redBright(" Bill Gates "),
+    age: 66,
     myList: []
 },
 {
     id: 3,
-    name: "Marcos Silva",
-    age: 57,
+    name: chalk.bgWhite.blueBright.bold(" Mark Zuckerberg "),
+    age: 38,
     myList: []
 },
 ]

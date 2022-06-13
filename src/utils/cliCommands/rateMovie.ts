@@ -12,7 +12,7 @@ async function rateMovie(movies: Movie[]){
                 const chooseMovieAnswers = await inquirer.prompt(chooseMovieQuestions);
                 movieId = chooseMovieAnswers.option;
                 const movieName = movies[movieId-1].name
-                console.log(movieName)
+                console.log(chalk.bgCyan.blackBright.bold(`${movieName} \n`))
     
                 const rateAnswers = await inquirer.prompt(rateQuestions);
                 rate = rateAnswers.framework;
@@ -28,7 +28,7 @@ async function rateMovie(movies: Movie[]){
       
                 
             } catch (error) {
-                console.log(chalk.red("\n User MUST be logged to rate movies! \n \n"))
+                console.log(chalk.redBright("\n User MUST be logged to rate movies! \n \n"))
                 runMenu()
             }
 

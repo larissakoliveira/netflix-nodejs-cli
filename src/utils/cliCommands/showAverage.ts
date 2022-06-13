@@ -7,12 +7,12 @@ function showAverage(movies: Movie[]){
     try{
         const moviesWithAverage = calculateMoviesAverage(movies);
         console.clear()
-        moviesWithAverage.map(movie => console.log((`${chalk.blue(movie.name)}, Average: ${chalk.green(movie.average)}`)))
+        moviesWithAverage.map(movie => console.log((`${chalk.blue.underline(movie.name)}, Average: ${chalk.greenBright(movie.average)}`)))
         runMenu();
     
         }
     catch (error) {
-        console.log(chalk.red("\n User MUST be logged in to see the movies rate average! \n \n"))
+        console.log(chalk.redBright("\n User MUST be logged to see the movies rate average! \n \n"))
         runMenu()
     }
 }

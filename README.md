@@ -46,25 +46,39 @@ The main subject of this day was Generics, a Typescript tool, kind of abstract a
 ### FifthDay
 We did a CLI using Inquirer library.
 #### About the CLI:
-When the CLI starts it asks the user to use the first option, download movies and login, before use any other option. The user id MUST be a valid one! The user MUST be login to be able to rate a movie, see the movies rate average, add a movie to his list, change user or exit it, otherwise an error will be thrown. <br>
-<div align="center" style="display:inline"><br>
-![image](https://user-images.githubusercontent.com/82476805/173262766-f0647c1b-4bd0-4ae0-a418-05b6ef04f924.png)
-![image](https://user-images.githubusercontent.com/82476805/173262819-62399695-adb1-40be-9195-7ef93377d397.png)
-<div/>
-<img align="center" src="https://user-images.githubusercontent.com/82476805/173261567-c20a1534-7d49-409c-949e-3525926ad783.png"/>
-<img align="center" src="https://user-images.githubusercontent.com/82476805/173261595-3a8d1a32-d627-4d2c-85cf-9af964b7cb9d.png"/>
-
-
+When the CLI starts it asks the user to use the first option, download movies and login, before use any other option. The user id MUST be a valid one! The user MUST be login to be able to rate a movie, see the movies rate average, add a movie to his list, change user or exit it, otherwise an error will be thrown. <br><br>
+<div align="center">
+<img align="center" src="https://user-images.githubusercontent.com/82476805/173263211-5c9cd57f-07f9-4c07-9b63-fe18b1fdb0f2.png"/><br>
+<img align="center" src="https://user-images.githubusercontent.com/82476805/173263267-58941b6e-72f5-4471-8ed3-db34c1c53a95.png"/>
+</div>
+<br><br>
 <b>Option - Rate Movie -</b> the user has to choose the movie he wants to rate by its id. After that, he will be asked to give the rate between 1 to 5.
-<img align="center" src="https://user-images.githubusercontent.com/82476805/173261637-c9c5763f-029f-4255-ac70-921c8b3a3749.png"/>
-
+<div align="center">
+<img align="center" src="https://user-images.githubusercontent.com/82476805/173263537-76a9ee2b-93a6-481e-a4e3-a7345d8bbaaa.png"/><br>
+<img align="center" src="https://user-images.githubusercontent.com/82476805/173263376-b1f09284-0951-43b9-bd2c-e868da10622d.png"/><br>
+<img align="center" src="https://user-images.githubusercontent.com/82476805/173263453-89156c31-8040-49f5-befa-8e7b2c7178af.png"/><br>
+<img align="center" src="https://user-images.githubusercontent.com/82476805/173263453-89156c31-8040-49f5-befa-8e7b2c7178af.png"/>
+</div>
 
 <br><br>
 <b>Option - Show movies rate average -</b> this one will show all movies that he had rated, with the movie name and its average.
+<div align="center">
+<img align="center" src="https://user-images.githubusercontent.com/82476805/173263715-ccd39596-cb26-43a6-bcb4-3c7c1a96899f.png"/>
+<img align="center" src="https://user-images.githubusercontent.com/82476805/173263954-f57a69e0-7d80-4cb9-8176-2d162bec627a.png"/>
+</div>
 <br><br>
 <b>Option - Add movie to your list -</b> when press this option, it will first request the movie id that the user wants to add to his list, it can be how many movies he wishes, as long as it follows the example(1, 2, 3) by passing each id separated by a comma.
+<div align="center">
+<img align="center" src="https://user-images.githubusercontent.com/82476805/173264192-5e6bc2f1-0018-4a54-87d6-e5085a77b3ab.png"/>
+<img align="center" src="https://user-images.githubusercontent.com/82476805/173264011-26ada8ea-d0dc-4d19-9b73-e9491777864e.png"/>
+<img align="center" src="https://user-images.githubusercontent.com/82476805/173264129-48e9f4ea-7aa5-42e1-a1be-de2a9e497ce7.png"/>
+</div>
 <br><br>
 <b>Option - Change user -</b> it will show this message after pressed this option.. "User logged out... to login again, press 1". So just press 1 in order to download the movies and login again, then you can login again by selecting from any other user option again.
+<div align="center">
+<img align="center" src="https://user-images.githubusercontent.com/82476805/173264262-537ed03f-da9c-40dd-b89d-3082dfed8232.png"/>
+</div>
+<br><br>
 Option - Exit - it exits the app.
 <br><br>
 At the end of the class we had a short introduction about decorators in Typescript, next week we will delve deeper into this subject. <br>

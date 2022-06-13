@@ -4,7 +4,7 @@
 
 <h1 align="center"> Netflix clone by Etho / McFadyen - Bootcamp </h1>
 
-##### Part 1 - [Front-end](https://github.com/larissakoliveira/netflix-react-desktop)
+#### Part 1 - [Front-end](https://github.com/larissakoliveira/netflix-react-desktop)
 
 ##### Now it's time to build the part 2, the back-end server!
 
@@ -47,8 +47,10 @@ The main subject of this day was Generics, a Typescript tool, kind of abstract a
 We did a CLI using Inquirer library.
 #### About the CLI:
 When the CLI starts it asks the user to use the first option, download movies and login, before use any other option. The user id MUST be a valid one! The user MUST be login to be able to rate a movie, see the movies rate average, add a movie to his list, change user or exit it, otherwise an error will be thrown. <br>
-<div display="flex" flexDirection="column" justifyContent="center">
-<img align="center" src="https://user-images.githubusercontent.com/82476805/173261494-8006f780-420c-4cb0-aa90-4a280023728b.png"/>
+<div align="center" style="display:inline"><br>
+![image](https://user-images.githubusercontent.com/82476805/173262766-f0647c1b-4bd0-4ae0-a418-05b6ef04f924.png)
+![image](https://user-images.githubusercontent.com/82476805/173262819-62399695-adb1-40be-9195-7ef93377d397.png)
+<div/>
 <img align="center" src="https://user-images.githubusercontent.com/82476805/173261567-c20a1534-7d49-409c-949e-3525926ad783.png"/>
 <img align="center" src="https://user-images.githubusercontent.com/82476805/173261595-3a8d1a32-d627-4d2c-85cf-9af964b7cb9d.png"/>
 

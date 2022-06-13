@@ -47,9 +47,11 @@ The main subject of this day was Generics, a Typescript tool, kind of abstract a
 We did a CLI using Inquirer library.
 #### About the CLI:
 When the CLI starts it asks the user to use the first option, download movies and login, before use any other option. The user id MUST be a valid one! The user MUST be login to be able to rate a movie, see the movies rate average, add a movie to his list, change user or exit it, otherwise an error will be thrown. <br>
-<img align="center" margin="0 auto" src="https://user-images.githubusercontent.com/82476805/173261494-8006f780-420c-4cb0-aa90-4a280023728b.png"/>
-<img align="center" margin="0 auto" src="https://user-images.githubusercontent.com/82476805/173261567-c20a1534-7d49-409c-949e-3525926ad783.png"/>
-<img align="center" margin="0 auto" src="https://user-images.githubusercontent.com/82476805/173261595-3a8d1a32-d627-4d2c-85cf-9af964b7cb9d.png"/>
+<div display="flex" flexDirection="column" justifyContent="center">
+<img align="center" src="https://user-images.githubusercontent.com/82476805/173261494-8006f780-420c-4cb0-aa90-4a280023728b.png"/>
+<img align="center" src="https://user-images.githubusercontent.com/82476805/173261567-c20a1534-7d49-409c-949e-3525926ad783.png"/>
+<img align="center" src="https://user-images.githubusercontent.com/82476805/173261595-3a8d1a32-d627-4d2c-85cf-9af964b7cb9d.png"/>
+
 
 <b>Option - Rate Movie -</b> the user has to choose the movie he wants to rate by its id. After that, he will be asked to give the rate between 1 to 5.
 <img align="center" src="https://user-images.githubusercontent.com/82476805/173261637-c9c5763f-029f-4255-ac70-921c8b3a3749.png"/>

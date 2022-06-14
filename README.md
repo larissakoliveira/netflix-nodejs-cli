@@ -2,11 +2,7 @@
   <img src="https://user-images.githubusercontent.com/82476805/171954276-4b4a2bc8-07b6-45a5-8919-29d6b8da7f38.png" />
 </p>
 
-<h1 align="center"> Netflix clone by Etho / McFadyen - Bootcamp </h1>
-
-### Part 1 - [Front-end](https://github.com/larissakoliveira/netflix-react-desktop)
-
-#### Now it's time to build the part 2, the back-end server!
+<h1 align="center"> Netflix CLI by Etho / McFadyen - Bootcamp </h1>
 
 ### To install all required dependencies use <br>
 ```npm i```
@@ -25,11 +21,10 @@ Project create with [Node.js](https://nodejs.org/en/docs/)
    * [FourthDay](#FourthDay)
    * [FifthDay](#FifthDay)
    * [Techs](#Techs)
-   * [Status](#Status)
    * [Author](#Author)
 
 ## Description
-At the first back-end week of the course, we have learned and improved a lot already. This is a summary of what we did each day.<br>
+At the first back-end week of the course, we have learned and improved a lot already. This is a summary of what we did each day of the week.<br>
 
 ### FirstDay
 Started by learn more about the Typescript syntax with a lot of examples, how to use it, and how to manipulate array data using Javascript methods.<br>
@@ -56,7 +51,7 @@ When the CLI starts it asks the user to use the first option, download movies an
 <b>Option - Rate Movie -</b> the user has to choose the movie he wants to rate by its id. After that, he will be asked to give the rate between 1 to 5.<br><br>
 <div align="center">
 <img align="center" src="https://user-images.githubusercontent.com/82476805/173264799-d2261885-6481-45ec-be3a-c2eb67d17b52.png"/><br><br>
-<img align="center" src="https://user-images.githubusercontent.com/82476805/173263376-b1f09284-0951-43b9-bd2c-e868da10622d.png"/>
+<img align="center" src="https://user-images.githubusercontent.com/82476805/173470774-9b7caeb3-aabc-43e7-a3d7-1ad2e7e5ef42.png"/>
 </div>
 
 <br>
@@ -94,12 +89,6 @@ At the end of the class we had a short introduction about decorators in Typescri
    * [Inquirer](https://www.npmjs.com/package/inquirer)
    * [Chalk](https://github.com/chalk/chalk)
 
-
- ### Status
- ---
- <h4 align="center"> 
-	🚧  Project 🚀 under construction! coming soon...  🚧
-</h4>
 
 ### Author
 ---
